@@ -4,10 +4,7 @@
 [![Version](https://img.shields.io/jetbrains/plugin/v/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 [![Downloads](https://img.shields.io/jetbrains/plugin/d/MARKETPLACE_ID.svg)](https://plugins.jetbrains.com/plugin/MARKETPLACE_ID)
 
-A clean, minimal icon pack for JetBrains IDEs, based on `vscode-symbols`.
-
 <!-- Plugin description -->
-<h2>Symbols Icons for JetBrains</h2>
 <p>A minimal file and folder icon theme for JetBrains IDEs.</p>
 <p>Based on <a href="https://github.com/miguelsolorio/vscode-symbols">vscode-symbols</a> by Miguel Solorio.</p>
 <!-- Plugin description end -->

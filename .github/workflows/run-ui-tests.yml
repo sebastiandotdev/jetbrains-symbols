@@ -30,11 +30,12 @@ jobs:
             runIde: ./gradlew runIdeForUiTests &
 
     steps:
+
       # Check out the current repository
       - name: Fetch Sources
         uses: actions/checkout@v6
         with:
-          submodules: recursive
+          submodules: recursive  # Required: deno task build reads from _submodules/
 
       # Set up the Java environment for the next steps
       - name: Setup Java
@@ -42,12 +43,6 @@ jobs:
         with:
           distribution: zulu
           java-version: 21
-
-      # Setup Gradle
-      - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v6
-        with:
-          cache-read-only: true
 
       # Set up Deno for icon generation
       - name: Setup Deno
@@ -58,6 +53,12 @@ jobs:
       # Regenerate icon assets from the upstream symbols source
       - name: Generate Icons
         run: deno task build
+
+      # Setup Gradle
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v6
+        with:
+          cache-read-only: true
 
       # Run IDEA prepared for UI testing
       - name: Run IDE

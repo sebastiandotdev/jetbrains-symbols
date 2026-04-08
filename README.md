@@ -12,7 +12,7 @@
 ## Preview
 
 <p align="center">
-	<img src="./preview.png"/>
+	<img src="./preview.png" />
 </p>
 
 ## Installation

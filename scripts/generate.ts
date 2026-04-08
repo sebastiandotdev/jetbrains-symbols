@@ -21,6 +21,14 @@ ensureDirSync(join(ICONS_DEST, 'folders'))
 
 const validIcons = new Set(Object.keys(iconDefinitions))
 
+const folderEntries = Object.keys(iconDefinitions)
+    .filter(name => name.startsWith("folder-"))
+    .map(name => {
+      const folderKey = name.replace("folder-", "") // "folder-android" → "android"
+      const field = toKtFieldName(name)             // "folder-android" → "folder_android"
+      return [folderKey, field] as [string, string]
+    })
+
 const validFileExtensions = Object.fromEntries(
   Object.entries(fileExtensions).filter(([_, icon]) => validIcons.has(icon))
 )
@@ -80,6 +88,12 @@ kt += `\n    val EXT_TO_ICON: Map<String, Icon> = mapOf(\n`;
 for (const [ext, iconName] of Object.entries(validFileExtensions)) {
   const field = toKtFieldName(iconName);
   kt += `        "${ext}" to ${field},\n`;
+}
+kt += `    )\n`;
+
+kt += `\n    val FOLDER_TO_ICON: Map<String, Icon> = mapOf(\n`;
+for (const [folderKey, field] of folderEntries) {
+  kt += `        "${folderKey}" to ${field},\n`;
 }
 kt += `    )\n`;
 

@@ -5,3 +5,7 @@
 .kotlin
 .qodana
 build
+
+# Auto-generated
+src/main/resources/symbols/icons/
+src/main/kotlin/com/github/sebastiandotdev/symbols/Icons.kt
